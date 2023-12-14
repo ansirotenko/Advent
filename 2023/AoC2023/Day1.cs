@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Xunit;
+﻿using Xunit;
 using FluentAssertions;
 
 namespace AoC2023;
