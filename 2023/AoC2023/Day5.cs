@@ -136,7 +136,7 @@ public class Day5
 
         foreach (var maps in data.Categories)
         {
-            ranges = ranges.SelectMany(r => MapRange(r, maps)).ToArray();
+            ranges = ranges.SelectMany(r => MapRange(r, maps));
         }
 
         IEnumerable<Range> MapRange(Range range, List<Map> maps)
