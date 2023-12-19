@@ -188,7 +188,7 @@ public class Day11
             new object[]
                         {
                             File.ReadAllText("Inputs/Day11.txt"),
-                            -1,
+                            699909023130,
                             1000000
                         },
         };
