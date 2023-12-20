@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using FluentAssertions;
-using Xunit.Abstractions;
 namespace AoC2023;
 
 public class Day10
@@ -29,7 +28,6 @@ public class Day10
     };
 
     private Point[] indexDirections = new[] { new Point(0, 1), new Point(0, -1), new Point(1, 0), new Point(-1, 0) };
-    private readonly ITestOutputHelper toh;
 
     private Point NextTile(int i, int j, int toDirection)
     {
