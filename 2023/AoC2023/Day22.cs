@@ -13,7 +13,7 @@ public class Day22
                     var p1 = split[0].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                     var p2 = split[1].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
-                    return new Brick(new Range(p1[0], p2[0]), new Range(p1[1], p2[1]), new Range(p1[2], p2[2])) { Name = "" + (char)('A' + i) };
+                    return new Brick(new Range(p1[0], p2[0]), new Range(p1[1], p2[1]), new Range(p1[2], p2[2]));
                 })
                 .OrderBy(b => b.Z.Start)
                 .ToArray();
@@ -43,7 +43,6 @@ public class Day22
         public Range X { get; init; }
         public Range Y { get; init; }
         public Range Z { get; set; }
-        public string Name { get; init; }
         public HashSet<Brick> Above { get; init; } = new HashSet<Brick>();
         public HashSet<Brick> Below { get; init; } = new HashSet<Brick>();
     }
@@ -53,7 +52,7 @@ public class Day22
         var maxY = data.Select(b => b.Y.End).Max() + 1;
         var maxX = data.Select(b => b.X.End).Max() + 1;
 
-        var grid = Enumerable.Range(0, maxX).Select(_ => Enumerable.Range(0, maxY).Select(x => (Brick)null).ToArray()).ToArray();
+        var grid = Enumerable.Range(0, maxX).Select(_ => Enumerable.Range(0, maxY).Select(x => null as Brick).ToArray()).ToArray();
 
         foreach (var brick in data)
         {
@@ -62,9 +61,9 @@ public class Day22
             {
                 for (int y = brick.Y.Start; y <= brick.Y.End; y++)
                 {
-                    if (grid[x][y] != null && grid[x][y].Z.End > z)
+                    if (grid[x][y] != null && grid[x][y]!.Z.End > z)
                     {
-                        z = grid[x][y].Z.End;
+                        z = grid[x][y]!.Z.End;
                     }
                 }
             }
@@ -76,11 +75,11 @@ public class Day22
             {
                 for (int y = brick.Y.Start; y <= brick.Y.End; y++)
                 {
-                    if (grid[x][y] != null && grid[x][y].Z.End == z)
+                    if (grid[x][y] != null && grid[x][y]!.Z.End == z)
                     {
-                        if (grid[x][y].Above.Add(brick))
+                        if (grid[x][y]!.Above.Add(brick))
                         {
-                            brick.Below.Add(grid[x][y]);
+                            brick.Below.Add(grid[x][y]!);
                         }
                     }
                     grid[x][y] = brick;
