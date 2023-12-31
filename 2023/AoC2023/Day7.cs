@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using FluentAssertions;
-using System.Net.Http.Headers;
 
 namespace AoC2023;
 

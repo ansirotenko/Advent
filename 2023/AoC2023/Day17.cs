@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using FluentAssertions;
-using System.Collections;
 namespace AoC2023;
 
 public class Day17

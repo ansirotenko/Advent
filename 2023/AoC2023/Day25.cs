@@ -1,7 +1,5 @@
 ﻿using Xunit;
 using FluentAssertions;
-using System.Text;
-using System.Reflection.Metadata;
 namespace AoC2023;
 
 public class Day25
@@ -34,54 +32,6 @@ public class Day25
 
         return ret;
     }
-
-    // [Theory]
-    // [MemberData(nameof(TestCases1))]
-    // public void Part1(string input, long expected)
-    // {
-    //     var data = Parse(input);
-
-    //     var toBeDeleted = new HashSet<(string, string)>();
-    //     foreach (var (name, deps) in data)
-    //     {
-    //         var suspects = deps.Where(d =>
-    //         {
-    //             return !deps.Where(dd => dd != d)
-    //                         .SelectMany(dd => data[dd].Concat(data[dd].Where(ddd => ddd != name).SelectMany(ddd => data[ddd])))
-    //                         .Contains(d);
-    //         }).ToArray();
-
-    //         foreach (var susp in suspects)
-    //         {
-    //             if (name.CompareTo(susp) < 0)
-    //             {
-    //                 toBeDeleted.Add((name, susp));
-    //             }
-    //             else
-    //             {
-    //                 toBeDeleted.Add((susp, name));
-    //             }
-    //         }
-    //     }
-
-    //     var test = data.GroupBy(x => x.Value.Count).ToDictionary(x => x.Key, x => x.Select(y => y.Key).ToArray()).ToArray();
-    //     var sb = new StringBuilder();
-
-    //     for (int i = 0; i < test.Length; i++)
-    //     {
-    //         for (int j = i + 1; j < test.Length; j++)
-    //         {
-    //             var count = test[i].Value.SelectMany(d => data[d]).Intersect(test[j].Value).Count();
-    //             sb.AppendLine($"{test[i].Key} - {test[j].Key} : {count}");
-    //         }
-    //     }
-
-    //     var dbg = sb.ToString();
-
-    //     var ret = -1L;
-
-    //     ret.Should().Be(expected);
-    // }
 
     [Theory]
     [MemberData(nameof(TestCases1))]
