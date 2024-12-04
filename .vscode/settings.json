@@ -1,0 +1,4 @@
+{
+    "dotnet.defaultSolution": "./2024/AoC2024.sln",
+    "csharp.preview.improvedLaunchExperience": true
+}
