@@ -9,7 +9,7 @@ public class Day1
     [MemberData(nameof(TestCases1))]
     public void Part1(string input, int expected)
     {
-        var rows = input.Split(new []{"\n\r", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+        var rows = input.Split(new []{"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
         var left = new List<int>(rows.Length);
         var right = new List<int>(rows.Length);
         for (int i = 0; i < rows.Length; i++) {
@@ -58,7 +58,7 @@ public class Day1
     [MemberData(nameof(TestCases2))]
     public void Part2(string input, int expected)
     {
-        var rows = input.Split(new []{"\n\r", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+        var rows = input.Split(new []{"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
         var left = new int[rows.Length];
         var right = new Dictionary<int, int>();
         for (int i = 0; i < rows.Length; i++) {
