@@ -1,7 +1,6 @@
 ﻿using Xunit;
 using FluentAssertions;
 using System.Text.RegularExpressions;
-using System.Globalization;
 
 namespace AoC2024;
 
