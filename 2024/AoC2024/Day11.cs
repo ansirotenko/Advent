@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using FluentAssertions;
-using System.Numerics;
 
 namespace AoC2024;
 
@@ -8,9 +7,9 @@ public class Day11
 {
     [Theory]
     [MemberData(nameof(TestCases1))]
-    public void Part1(string input, int expected)
+    public void Part1(string input, long expected)
     {
-        var numbers = input.Split(new []{" ", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+        var numbers = input.Split(new []{" ", "\n", "\r\n"}, StringSplitOptions.RemoveEmptyEntries);
         var cache = new Dictionary<int, Dictionary<string, long>>();
         var ret = numbers.Sum(num => Solve(num, 25, cache));
         ret.Should().Be(expected);
@@ -22,12 +21,12 @@ public class Day11
             new object[]
                         {
                             "125 17",
-                            55312
+                            55312L
                         },
             new object[]
                         {
                             File.ReadAllText("Inputs/Day11.txt"),
-                            191690
+                            191690L
                         },
     };
 
@@ -62,7 +61,7 @@ public class Day11
     [MemberData(nameof(TestCases2))]
     public void Part2(string input, long expected)
     {
-        var numbers = input.Split(new []{" ", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+        var numbers = input.Split(new []{" ", "\n", "\r\n"}, StringSplitOptions.RemoveEmptyEntries);
         var cache = new Dictionary<int, Dictionary<string, long>>();
         var ret = numbers.Sum(num => Solve(num, 75, cache));
         ret.Should().Be(expected);
