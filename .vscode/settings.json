@@ -1,4 +1,5 @@
 {
-    "dotnet.defaultSolution": "./2024/AoC2024.sln",
-    "csharp.preview.improvedLaunchExperience": true
+    "dotnet.defaultSolution": "./2025/AoC2025.sln",
+    "csharp.preview.improvedLaunchExperience": true,
+    "editor.tabSize": 4
 }
