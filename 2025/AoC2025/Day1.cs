@@ -1,7 +1,7 @@
 using Xunit;
 using FluentAssertions;
 
-namespace AoC2024;
+namespace AoC2025;
 
 public class Day1
 {
@@ -11,23 +11,30 @@ public class Day1
     {
         var ret = 0;
         var postition = 50;
-        var rows = input.Split(new []{"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
-        foreach (var line in rows) {
+        var rows = input.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in rows)
+        {
             var rotations = int.Parse(line.Substring(1)) % 100;
-            if (line[0] == 'L') {
+            if (line[0] == 'L')
+            {
                 postition -= rotations;
-                if (postition < 0) {
+                if (postition < 0)
+                {
                     postition += 100;
                 }
-            } else {
+            }
+            else
+            {
                 postition += rotations;
-                if (postition >= 100) {
+                if (postition >= 100)
+                {
                     postition -= 100;
                 }
             }
 
-            if (postition == 0) {
-                ret ++;
+            if (postition == 0)
+            {
+                ret++;
             }
         }
 
@@ -66,30 +73,39 @@ public class Day1
     {
         var ret = 0;
         var postition = 50;
-        var rows = input.Split(new []{"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
-        foreach (var line in rows) {
+        var rows = input.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in rows)
+        {
             var rotations = int.Parse(line.Substring(1));
             ret += rotations / 100;
-            if (line[0] == 'L') {
-                if (postition == 0) {
-                    ret --;
+            if (line[0] == 'L')
+            {
+                if (postition == 0)
+                {
+                    ret--;
                 }
                 postition -= rotations % 100;
-                if (postition < 0) {
-                    ret ++;
+                if (postition < 0)
+                {
+                    ret++;
                     postition += 100;
-                } 
-                else {
-                    if (postition == 0) {
-                        ret ++;
+                }
+                else
+                {
+                    if (postition == 0)
+                    {
+                        ret++;
                     }
                 }
-            } else {
+            }
+            else
+            {
                 postition += rotations % 100;
-                if (postition >= 100) {
-                    ret ++;
+                if (postition >= 100)
+                {
+                    ret++;
                     postition -= 100;
-                } 
+                }
             }
         }
         ret.Should().Be(expected);
